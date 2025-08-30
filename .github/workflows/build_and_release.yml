@@ -18,4 +18,9 @@ jobs:
             node-version: 24
         - id: s03
           uses: actions/checkout@v5
-        - run: ls -l
+        - id: s04
+          run: npm i -g @angular/cli && npm ci && echo "Installed" # install angular cli & packages from package.json
+        - id: s05
+          run: ng build # build app
+        - id: s06
+          run: ls -l /dist/countingbook/browser
