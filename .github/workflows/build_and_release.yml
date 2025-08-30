@@ -1,0 +1,21 @@
+name: count book
+
+# trigger
+on: 
+- push
+
+# one or more jobs
+jobs: 
+    book_app: 
+        runs-on: ubuntu-latest
+        steps: 
+        - id: s01
+          run: echo "github ${{ github.ref_name }}"
+          # setup env
+        - id: s02
+          uses: actions/setup-node@v4
+          with:
+            node-version: 24
+        - id: s03
+          uses: actions/checkout@v5
+        - run: ls -l
